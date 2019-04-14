@@ -104,6 +104,7 @@ Any of the commands can be run at creation with `docker run` or later with
 
 ### Start an instance creating users and shares:
 
+```
     sudo docker run -it -p 139:139 -p 445:445 -d dperson/samba \
                 -u "example1;badpass" \
                 -u "example2;badpass" \
@@ -111,6 +112,13 @@ Any of the commands can be run at creation with `docker run` or later with
                 -s "users;/srv;no;no;no;example1,example2" \
                 -s "example1 private share;/example1;no;no;no;example1" \
                 -s "example2 private share;/example2;no;no;no;example2"
+```
+
+### example
+```
+docker run -u root --privileged -it -p 139:139 -p 445:445 -v /root:/share -d dperson/samba -u "root;password" -s "root dir;/share;yes;no;yes;all;none;root" 
+```
+
 
 # User Feedback
 
